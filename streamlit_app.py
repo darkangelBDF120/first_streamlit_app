@@ -26,6 +26,7 @@ streamlit.dataframe(fruits_to_show)
 
 #New section to display Fruityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
+fruit_choice = streamlit.text_input("What fruit would you like information about?")
 try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
@@ -36,12 +37,8 @@ try:
 
 except URLError as e:
   streamtlit.error()
-
-fruit_choice = streamlit.text_input('What fruit would you like information on?')
-
-
+  
 #Output it to the screen as a table
-
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
