@@ -41,12 +41,6 @@ try:
 except URLError as e:
   straemlit.error()
 
-#Do not run anything past this while we troubleshoot
-#streamlit.stop()
-
-# Display the table on the page.
-streamlit.dataframe(my_fruit_list)
-
 #Import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
